@@ -1,4 +1,4 @@
-package com.example.hogwartslibrary.ui.home
+package com.example.hogwartslibrary.ui.scenes.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hogwartslibrary.R
 
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel

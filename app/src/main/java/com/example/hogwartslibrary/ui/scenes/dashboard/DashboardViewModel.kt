@@ -1,4 +1,4 @@
-package com.example.hogwartslibrary.ui.dashboard
+package com.example.hogwartslibrary.ui.scenes.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

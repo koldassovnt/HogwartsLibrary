@@ -1,4 +1,4 @@
-package com.example.hogwartslibrary.ui.dashboard
+package com.example.hogwartslibrary.ui.scenes.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hogwartslibrary.R
 
+@Suppress("DEPRECATION")
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
