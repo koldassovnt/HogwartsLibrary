@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HogwartsLibrary</string>
     <string name="title_students">Students</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_houses">Houses</string>
     <string name="title_notifications">Notifications</string>
     <string name="welcome_title">Welcome to the school of magic and wizardry - Hogwarts</string>
     <string name="welcome_subtitle">Put on sorting hat</string>
@@ -12,4 +12,7 @@
     <string name="welcome_next">Get in the school </string>
     <string name="students_search_hint">Enter name to search</string>
     <string name="loading">Loading...</string>
+    <string name="house_detail_leader">The leader is [LEADER_NAME]</string>
+    <string name="house_detail_owner">Founded by [FOUNDER_NAME]</string>
+    <string name="house_detail_ghost">Main ghost is [GHOST_NAME]</string>
 </resources>

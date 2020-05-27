@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.scenes.house.HouseDetailFragment">
+
+    <ImageView
+        android:id="@+id/imgHouseDetail"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/img_slytherin"
+        android:scaleType="centerCrop"/>
+    
+    <TextView
+        android:id="@+id/txtHouseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/main_header_size"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Slytherin"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/main_header_color" />
+
+    <TextView
+        android:id="@+id/txtHouseLeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/main_subheader_color"
+        android:textSize="@dimen/main_subheader_size"
+        android:text="@string/house_detail_leader"
+        />
+
+    <TextView
+        android:id="@+id/txtHouseOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/main_subheader_color"
+        android:textSize="@dimen/main_subheader_size"
+        android:text="@string/house_detail_owner"
+        />
+
+    <TextView
+        android:id="@+id/txtHouseGhost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/main_subheader_color"
+        android:textSize="@dimen/main_subheader_size"
+        android:text="@string/house_detail_ghost"/>
+
+</LinearLayout>

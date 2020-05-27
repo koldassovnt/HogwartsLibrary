@@ -61,14 +61,12 @@ class HatActivity : AppCompatActivity() {
                 sharedPreferences.edit().putString(Keys.Username.value, textWelcomeUsername.text.toString())
                     .putString(Keys.Faculty.value, facultyName)
                     .apply()
-
                 txtWelcomeSelected.text =
                     getString(R.string.welcome_selected).replace("[faculty_name]", facultyName)
                 txtWelcomeSelected.visibility = View.VISIBLE
                 textWelcomeUsername.isEnabled = false
                 btnWelcomeSelect.text = getString(R.string.welcome_next)
             }
-
         })
     }
 

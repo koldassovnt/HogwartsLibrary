@@ -13,13 +13,27 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.hogwartslibrary.ui.scenes.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.example.hogwartslibrary.ui.scenes.houses.HousesFragment"
+        android:label="@string/title_houses"
+        tools:layout="@layout/fragment_houses" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_houseDetailFragment"
+            app:destination="@id/houseDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.hogwartslibrary.ui.scenes.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/houseDetailFragment"
+        android:name="com.example.hogwartslibrary.ui.scenes.house.HouseDetailFragment"
+        android:label="house_detail_fragment"
+        tools:layout="@layout/house_detail_fragment" >
+        <argument
+            android:name="House"
+            app:argType="com.example.hogwartslibrary.ui.scenes.house.Houses"
+            android:defaultValue="Gryffindor" />
+    </fragment>
 </navigation>
