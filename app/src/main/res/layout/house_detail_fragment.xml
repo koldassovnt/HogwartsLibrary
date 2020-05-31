@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.scenes.house.HouseDetailFragment">
 
+    <LinearLayout
+        android:id="@+id/llHouseDetail"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imgHouseDetail"
         android:layout_width="match_parent"
@@ -56,5 +60,14 @@
         android:textColor="@color/main_subheader_color"
         android:textSize="@dimen/main_subheader_size"
         android:text="@string/house_detail_ghost"/>
+    </LinearLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/txtHouseDetailLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:layout_gravity="center"
+        android:textColor="@color/primary_text_color"
+        android:textSize="24sp"/>
+</FrameLayout>

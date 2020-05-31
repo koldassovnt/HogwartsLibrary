@@ -6,17 +6,37 @@
     android:layout_height="wrap_content"
     android:paddingTop="16dp">
 
-    <TextView
-        android:id="@+id/txtStudentName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
+        android:orientation="horizontal"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Harry Potter"
-        android:textSize="16sp"
-        android:textColor="@color/primary_text_color"
-        />
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/txtStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Harry Potter"
+            android:textSize="16sp"
+            android:textColor="@color/primary_text_color"
+            />
+
+        <TextView
+            android:id="@+id/txtStudentSpecies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Human"
+            android:layout_marginStart="12dp"
+            android:textSize="13sp"
+            android:alpha="0.5"
+            android:textColor="@color/primary_text_color"
+            />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/txtStudentFaculty"

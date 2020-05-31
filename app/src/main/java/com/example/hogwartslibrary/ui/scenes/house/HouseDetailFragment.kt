@@ -12,9 +12,11 @@ import androidx.navigation.findNavController
 import com.example.hogwartslibrary.R
 import com.example.hogwartslibrary.helpers.Keys
 import kotlinx.android.synthetic.main.fragment_houses.*
+import kotlinx.android.synthetic.main.fragment_students.*
 import kotlinx.android.synthetic.main.house_detail_fragment.*
 import java.security.Key
 
+@Suppress("DEPRECATION")
 class HouseDetailFragment : Fragment() {
 
     companion object {
@@ -33,30 +35,45 @@ class HouseDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HouseDetailViewModel::class.java)
+        setupLoading()
         configureLayout()
 
         viewModel.fetchData(house = arguments?.get(Keys.Faculty.value) as Houses)
     }
 
     private fun configureLayout() {
-        viewModel.founder.observe(this, Observer {
+        viewModel.founder.observe(viewLifecycleOwner, Observer {
             txtHouseOwner.text = getString(R.string.house_detail_owner).replace("[FOUNDER_NAME]", it)
         })
 
-        viewModel.ghost.observe(this, Observer {
+        viewModel.ghost.observe(viewLifecycleOwner, Observer {
             txtHouseGhost.text = getString(R.string.house_detail_ghost).replace("[GHOST_NAME]", it)
         })
 
-        viewModel.leader.observe(this, Observer {
+        viewModel.leader.observe(viewLifecycleOwner, Observer {
             txtHouseLeader.text = getString(R.string.house_detail_leader).replace("[LEADER_NAME]", it)
         })
 
-        viewModel.houseName.observe(this, Observer {
+        viewModel.houseName.observe(viewLifecycleOwner, Observer {
             txtHouseName.text = it
         })
 
-        viewModel.houseImage.observe(this, Observer {
+        viewModel.houseImage.observe(viewLifecycleOwner, Observer {
             imgHouseDetail.setImageResource(it)
+        })
+    }
+
+    private fun setupLoading() {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            txtHouseDetailLoading.visibility = if (it)
+                View.VISIBLE
+            else
+                View.GONE
+
+            llHouseDetail.visibility = if (it)
+                View.GONE
+            else
+                View.VISIBLE
         })
     }
 }

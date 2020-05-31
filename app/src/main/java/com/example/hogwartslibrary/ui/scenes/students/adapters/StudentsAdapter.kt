@@ -16,6 +16,7 @@ class StudentsAdapter : RecyclerView.Adapter<StudentsAdapter.StudentViewHolder>(
         mDataList.clear()
         mDataList.addAll(newData)
         filter(query = "")
+        notifyDataSetChanged()
     }
 
     fun filter(query: String) {
@@ -47,10 +48,12 @@ class StudentsAdapter : RecyclerView.Adapter<StudentsAdapter.StudentViewHolder>(
 
         private val txtName: TextView = itemView.findViewById(R.id.txtStudentName)
         private val txtFaculty: TextView = itemView.findViewById(R.id.txtStudentFaculty)
+        private val txtSpecie: TextView = itemView.findViewById(R.id.txtStudentSpecies)
 
         fun bind(cellModel: StudentCellModel) {
             txtName.text = cellModel.name
             txtFaculty.text = cellModel.facultyName
+            txtSpecie.text = cellModel.species
         }
     }
 }

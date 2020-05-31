@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hogwartslibrary.domain.repositories.StudentsRepository
 import com.example.hogwartslibrary.domain.repositories.StudentsRepositoryImpl
 import com.example.hogwartslibrary.ui.scenes.students.adapters.StudentCellModel
+import com.example.hogwartslibrary.ui.scenes.students.adapters.mapToUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -29,9 +30,9 @@ class StudentsViewModel : ViewModel() {
             withContext(Dispatchers.Default) {
                 val students = studentsRepository.fetchStudents()
                 _isLoading.postValue(false)
-                _students.postValue(students.map { StudentCellModel(
-                    id = it.id, name = "${it.name} ${it.surname}", facultyName = it.facultyName
-                ) })
+                students?.let { values ->
+                    _students.postValue(values.map { it.mapToUI()})
+                }
             }
         }
     }

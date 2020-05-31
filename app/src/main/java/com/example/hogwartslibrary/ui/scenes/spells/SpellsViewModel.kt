@@ -3,23 +3,22 @@ package com.example.hogwartslibrary.ui.scenes.spells
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.hogwartslibrary.domain.repositories.SpellRepositoryImpl
 import com.example.hogwartslibrary.ui.scenes.spells.adapters.SpellsCellModel
+import com.example.hogwartslibrary.ui.scenes.spells.adapters.mapToUI
+import com.example.hogwartslibrary.ui.scenes.students.adapters.mapToUI
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.nio.channels.Selector
 
 class SpellsViewModel : ViewModel() {
 
-    private val _spells = MutableLiveData<MutableList<SpellsCellModel>>().apply {
-        value = mutableListOf(
-            SpellsCellModel(name = "Diffindo", type = "Charm"),
-            SpellsCellModel(name = "Vingardio Leviosa", type = "Spell"),
-            SpellsCellModel(name = "Avada Kedavra", type = "Curse"),
-            SpellsCellModel(name = "Oblivious", type = "Jinx"),
-            SpellsCellModel(name = "Diffindo", type = "Charm"),
-            SpellsCellModel(name = "Vingardio Leviosa", type = "Spell"),
-            SpellsCellModel(name = "Avada Kedavra", type = "Curse"),
-            SpellsCellModel(name = "Oblivious", type = "Jinx")
+    private val spellsRepository = SpellRepositoryImpl()
 
-        )
+    private val _spells = MutableLiveData<MutableList<SpellsCellModel>>().apply {
+        value = mutableListOf()
     }
     private val _filters = MutableLiveData<MutableList<String>>().apply {
         value = mutableListOf()
@@ -31,7 +30,17 @@ class SpellsViewModel : ViewModel() {
     val spellsDisplay: LiveData<MutableList<SpellsCellModel>> = _spellsDisplay
 
     init {
-        _spellsDisplay.postValue(_spells.value ?: ArrayList())
+        fetchSpells()
+    }
+
+    private fun fetchSpells() {
+        viewModelScope.launch {
+            withContext(Dispatchers.Default) {
+                val spells = spellsRepository.getAllSpells()
+                _spells.postValue(spells.map { it.mapToUI()}.toMutableList())
+                _spellsDisplay.postValue(_spells.value ?: ArrayList())
+            }
+        }
     }
 
 

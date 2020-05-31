@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.hogwartslibrary.ui.scenes.spells
 
 import android.os.Bundle
@@ -61,7 +63,7 @@ class SpellsFragment : Fragment() {
     }
 
     private fun configureDataDisplay() {
-        spellsViewModel.spellsDisplay.observe(this, Observer {data ->
+        spellsViewModel.spellsDisplay.observe(viewLifecycleOwner, Observer {data ->
             mAdapter.setData(newData = data)
         })
     }
